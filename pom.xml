@@ -13,6 +13,8 @@
         <module>eureka</module>
         <module>eureka-client</module>
         <module>zuul</module>
+        <module>eureka-order</module>
+        <module>eureka-member2</module>
     </modules>
 
     <parent>
