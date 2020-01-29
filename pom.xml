@@ -15,6 +15,10 @@
         <module>zuul</module>
         <module>eureka-order</module>
         <module>eureka-member2</module>
+        <module>eureka-colony1</module>
+        <module>eureka-colony2</module>
+        <module>eureka-colony-client1</module>
+        <module>eureka-colony-client2</module>
     </modules>
 
     <parent>

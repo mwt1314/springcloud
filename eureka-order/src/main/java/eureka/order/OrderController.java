@@ -47,7 +47,6 @@ public class OrderController {
      * 当会员服务为集群时：
      * 会员服务8000：eureka-client模块名：返回值为order reponse is:this is member service, port is 8000
      * 会员服务8010：eureka-member2模块名：返回值为order reponse is:this is member service, port is 8010
-     *
      * 反复调用此方法时：会轮询调用他们
      *
      * @return

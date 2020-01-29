@@ -1,0 +1,39 @@
+eureka高可用原理：将自己作为服务向其他服务注册自己。
+eureka集群的application.yml配置如下：
+server:
+  port: 8100
+
+spring:
+  application:
+    #集群的服务名称需要相同
+    name: app-order
+
+eureka:
+  instance:
+    #注册中心ip地址，对应eureka可视化界面列表中的Application，默认是spring.application.name
+    appname: 127.0.0.1
+  client:
+    service-url:
+      #多个用逗号隔开
+      defaultZone: http://localhost:9100/eureka
+    #将服务注册到eureka中心上去
+    register-with-eureka: true
+    #不需要去注册中心检索服务了，不需要远程访问服务了
+    fetch-registry: true
+
+
+启动时报错：com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server可以忽略。
+
+互相注册较慢，需要时间
+
+client端访问集群时：
+客户机服务注册到eureka集群时，只会注册到eureka主机中去，不会整个集群每一台机器都注册，他只保证只有一台注册中心服务有对应的服务数据
+当注册中心主机宕机后，eureka的同步机制启动故障转移，将数据同步到集群其他机器中（需要时间，估计30S），以实现高可用
+
+
+微服务中常用的服务注册中心：eureka consul zookeeper
+
+
+
+
+

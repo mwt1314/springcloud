@@ -1,0 +1,20 @@
+server:
+  port: 8100
+
+spring:
+  application:
+    #集群的服务名称需要相同
+    name: app-order
+
+eureka:
+  instance:
+    #注册中心ip地址
+    appname: 127.0.0.1
+  client:
+    service-url:
+      #多个用逗号隔开
+      defaultZone: http://localhost:9100/eureka
+    register-with-eureka: true
+    #不需要去注册中心检索服务了
+    fetch-registry: true
+

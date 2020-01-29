@@ -18,7 +18,7 @@ public class App {
     //解决异常
     //Field restTemplate in eureka.order.OrderController required a bean of type 'org.springframework.web.client.RestTemplate' that could not be found.
     @Bean
-    @LoadBalanced  //本地负载均衡
+    @LoadBalanced  //可以让resttemplate在请求时拥有客户端负载均衡的能力
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
